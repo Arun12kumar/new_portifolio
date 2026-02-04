@@ -3,7 +3,7 @@ import ButtonV1 from './ButtonV1'
 
 const Navbar = () => {
   return (
-    <div className='flex w-full h-[10vh] font-semibold items-center justify-between px-20'>
+    <div className='flex w-full h-[12vh] font-semibold items-center justify-between px-20 py-2'>
         <div>
             <img src="./icons/LOGO.png" alt="logo" />
         </div>
