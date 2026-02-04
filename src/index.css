@@ -1,68 +1,50 @@
+@import "tailwindcss";
+
+
+@theme {
+  --font-equitan: "EquitanSans", sans-serif;
+  --font-radhiumz: "Radhiumz", sans-serif;
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-textPrimary: var(--textPrimary);
+  --color-textSecondary: var(--textSecondary);
+}
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  --primary:oklch(0.4239 0.1875 285.79);
+  --secondary:oklch(0.8209 0.1582 131.29);
+  --background:oklch(1 0 0);
+  --textPrimary:oklch(0.2603 0 0);
+  --textSecondary:oklch(0.5208 0 0);
+}
+
+@font-face {
+  font-family: "EquitanSans";
+  font-style: bold;
+  font-weight: bold;
+  src: url("./assets/fonts/EquitanSans-Bold.otf") format("opentype");
+}
+@font-face {
+  font-family: "EquitanSans";
+  font-style: light;
+  font-weight: 100;
+  src: url("./assets/fonts/EquitanSans-Light.otf") format("opentype");
+}
+@font-face {
+  font-family: "EquitanSans";
+  font-style: normal;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  src: url("./assets/fonts/zEquitanSans-Regular.otf") format("opentype");
+}
+@font-face {
+  font-family: "EquitanSans";
+  font-style: normal;
+  font-weight: 600;
+  src: url("./assets/fonts/EquitanSans-SemiBold.otf") format("opentype");
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+@font-face {
+  font-family: "Radhiumz";
+  font-style: normal;
+  src: url("./assets/fonts/NCS\ Radhiumz\ Light.ttf") format("truetype");
 }
