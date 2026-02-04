@@ -9,6 +9,7 @@
   --color-background: var(--background);
   --color-textPrimary: var(--textPrimary);
   --color-textSecondary: var(--textSecondary);
+  --breakpoint-xs: 470px;
 }
 
 :root {

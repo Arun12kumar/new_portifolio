@@ -14,6 +14,7 @@ const App = () => {
   const wrapperRef = useRef(null);
   const contentRef = useRef(null);
 
+
   useGSAP(()=>{
     ScrollSmoother.create({
       wrapper:wrapperRef.current,
@@ -21,16 +22,21 @@ const App = () => {
       smooth:1.2,
       effects:true
     })
+
   },[])
 
   return (
+    <>
+    <Navbar/>
+
     <div ref={wrapperRef} className='min-h-screen'>
       <div ref={contentRef}>
-        <Navbar/>
+        
         <Hero/>
         <Service/>
       </div>
     </div>
+    </>
   )
 }
 
