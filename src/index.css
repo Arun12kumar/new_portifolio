@@ -6,6 +6,7 @@
   --font-radhiumz: "Radhiumz", sans-serif;
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
+  --color-background: var(--background);
   --color-textPrimary: var(--textPrimary);
   --color-textSecondary: var(--textSecondary);
 }
@@ -16,18 +17,20 @@
   --background:oklch(1 0 0);
   --textPrimary:oklch(0.2603 0 0);
   --textSecondary:oklch(0.5208 0 0);
+  font-family: "EquitanSans", sans-serif;
+  font-weight: 400;
 }
 
 @font-face {
   font-family: "EquitanSans";
-  font-style: bold;
-  font-weight: bold;
+  font-style: normal;
+  font-weight: 700;
   src: url("./assets/fonts/EquitanSans-Bold.otf") format("opentype");
 }
 @font-face {
   font-family: "EquitanSans";
-  font-style: light;
-  font-weight: 100;
+  font-style: normal;
+  font-weight: 300;
   src: url("./assets/fonts/EquitanSans-Light.otf") format("opentype");
 }
 @font-face {
@@ -46,5 +49,6 @@
 @font-face {
   font-family: "Radhiumz";
   font-style: normal;
+  font-weight: 300;
   src: url("./assets/fonts/NCS\ Radhiumz\ Light.ttf") format("truetype");
 }
