@@ -3,19 +3,32 @@ import ButtonV1 from "./ButtonV1";
 import ButtonV2 from "./ButtonV2";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { Link } from "react-scroll";
+import { useMediaQuery } from 'react-responsive'
 
 const menuLinks = [
-  { id: 1, title: "Home" },
-  { id: 2, title: "Services" },
-  { id: 3, title: "About" },
-  { id: 4, title: "Projects" },
-  { id: 5, title: "Testimonials" },
+  { id: 1, title: "Home", path: "#home" },
+  { id: 2, title: "Services", path: "#services" },
+  { id: 3, title: "About", path: "#about" },
+  { id: 4, title: "Projects", path: "#projects" },
+  { id: 5, title: "Testimonials", path: "#testimonials" },
 ];
 
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
   const navRef = useRef(null);
   const tl = useRef(null);
+  const isMobile = useMediaQuery({ query: '(max-width: 640px)' });
+  const [active, setActive] = useState(null);
+
+  const handleMobileClick = (to) => {
+    setActive(to);
+    setMenu(false);
+  };
+
+  const handleActive = (to) => {
+    setActive(to);
+  };
 
   useGSAP(() => {
     if (!navRef.current) return;
@@ -57,24 +70,45 @@ const Navbar = () => {
     }
   }, [menu]);
 
+  useEffect(() => {
+    if (!isMobile) {
+      setMenu(false); 
+    }
+  }, [isMobile]);
 
   return (
     <>
-      <div className="sm:flex w-full h-[12vh] font-semibold items-center justify-between px-10 lg:px-20 py-2 fixed top-2 z-50 bg-white hidden">
+      <div className="sm:flex w-full h-[12vh] font-semibold items-center justify-between px-10 lg:px-20 py-2 fixed top-0 z-50 bg-white hidden">
         <div>
           <img src="./icons/LOGO.png" alt="logo" className="hidden lg:block" />
           <img src="./icons/LOGO2.png" alt="logo" className="lg:hidden w-20 h-20 object-scale-down" />
         </div>
-        <ul className="flex flex-row gap-5 lg:gap-10 text-textSecondary lg:text-lg">
-          {menuLinks.map((items, index) => (
-            <li key={index}>{items.title}</li>
-          ))}
+        <ul className="flex flex-row gap-5 lg:gap-10 lg:text-lg">
+          {menuLinks.map((items, index) => {
+            const isActive = active === items.path.replace("#", "");
+
+            return(
+              <Link
+                className={`${isActive ? "text-primary":"text-textSecondary"} cursor-pointer hover:text-primary`}
+                spy={true}
+                smooth={true}
+                duration={500}
+                offset={-80}
+                key={index}
+                to={items.path.replace("#", "")}
+                onClick={() => handleActive(items.path.replace("#", ""))}
+              >
+                {items.title}
+              </Link>
+            )
+
+          })}
         </ul>
 
         <ButtonV1 title="Contact me" bgcolor="bg-primary" textColour="text-white" />
       </div>
 
-      <div className="flex flex-row items-center justify-between px-5 sm:hidden relative">
+      <div className="flex flex-row items-center justify-between px-5 sm:hidden w-full fixed top-0 bg-white z-50">
         <img src="./icons/LOGO2.png" alt="logo" className="lg:hidden w-20 h-20 object-scale-down" />
         <div
           className="w-10 h-10 bg-primary rounded-md flex items-center justify-center"
@@ -124,43 +158,57 @@ const Navbar = () => {
             </svg>
           )}
         </div>
-      </div>
-      <div
-        ref={navRef}
-        className={`text-white sm:hidden absolute w-full z-50 ${menu ? "pointer-events-auto" : "pointer-events-none"}`}
-      >
-        {menuLinks.map((item, index) => (
-          <div
-            key={index}
-            className="menu-item py-2 bg-primary px-4 text-2xl border-b flex items-center justify-between"
-          >
-            {item.title}
-            <svg
-              className="w-9 h-9 xs:w-12 xs:h-12"
-              width="49"
-              height="49"
-              viewBox="0 0 49 49"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <circle cx="24.5" cy="24.5" r="24.5" fill="#ffffff" />
-              <g clipPath="url(#clip0_189_90)">
-                <path
-                  d="M27.75 16.25L25.9875 18.0125L31.7125 23.75H11.5V26.25H31.7125L25.975 31.9875L27.75 33.75L36.5 25L27.75 16.25Z"
-                  fill="#4C2FAD"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_189_90">
-                  <rect width="30" height="30" fill="white" transform="translate(9 10)" />
-                </clipPath>
-              </defs>
-            </svg>
-          </div>
-        ))}
 
-        <div id="menuBtn" className="py-2 h-20 flex items-center bg-primary px-4">
-          <ButtonV2 title="Contact me" bgcolor="bg-secondary" textColour="text-textPrimary" />
+        <div
+          ref={navRef}
+          className={`sm:hidden absolute left-0 top-20 w-full z-50 ${
+            menu ? "pointer-events-auto" : "pointer-events-none"
+          }`}
+        >
+          {menuLinks.map((item, index) => {
+            const isActive = active === item.path.replace("#", "");
+
+            return(
+               <Link
+              key={index}
+              to={item.path.replace("#", "")}
+              spy={true}
+              smooth={true}
+              duration={500}
+              offset={-80}
+              className={`menu-item py-2 bg-primary px-4 text-2xl border-b flex items-center justify-between ${isActive ? "text-secondary":"text-white"}`}
+              onClick={() => handleMobileClick(item.path.replace("#", ""))}
+            >
+              {item.title}
+              <svg
+                className="w-9 h-9 xs:w-12 xs:h-12"
+                width="49"
+                height="49"
+                viewBox="0 0 49 49"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="24.5" cy="24.5" r="24.5" fill={`${isActive ?"#9FD966" :"#ffffff"}`} />
+                <g clipPath="url(#clip0_189_90)">
+                  <path
+                    d="M27.75 16.25L25.9875 18.0125L31.7125 23.75H11.5V26.25H31.7125L25.975 31.9875L27.75 33.75L36.5 25L27.75 16.25Z"
+                    fill="#4C2FAD"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_189_90">
+                    <rect width="30" height="30" fill="white" transform="translate(9 10)" />
+                  </clipPath>
+                </defs>
+              </svg>
+            </Link>
+            )
+           
+          })}
+
+          <div id="menuBtn" className="py-2 h-20 flex items-center bg-primary px-4">
+            <ButtonV2 title="Contact me" bgcolor="bg-secondary" textColour="text-textPrimary" />
+          </div>
         </div>
       </div>
     </>

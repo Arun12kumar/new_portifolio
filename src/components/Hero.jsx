@@ -2,8 +2,8 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <div className="w-full h-[88vh] relative overflow-hidden flex flex-col gap-2 xs:gap-3 items-center xs:pt-10 mt-10 sm:mt-20">
-      <div className="text-lg xs:text-xl lg:text-3xl mb-3 xs:mb-6 flex flex-row items-center gap-3">
+    <div id="home" className="w-full h-[88dvh] sm:h-[88vh] relative overflow-hidden flex flex-col gap-4 xs:gap-3 items-center pt-8 xs:pt-10 mt-20">
+      <div className="text-lg xs:text-xl lg:text-3xl mb-7 xs:mb-6 flex flex-row items-center gap-3">
         <div className="w-6 h-1 bg-primary"></div> <p>Hello</p>
       </div>
       <div className="font-radhiumz text-5xl xs:text-4xl sm:text-5xl lg:text-7xl xl:text-8xl flex flex-row gap-6 xs:gap-13">
@@ -13,7 +13,7 @@ const Hero = () => {
       <h1 className="font-radhiumz text-5xl xs:text-4xl sm:text-5xl lg:text-7xl xl:text-8xl xs:hidden">Full-stack</h1>
       <h1 className="font-radhiumz text-5xl xs:text-4xl sm:text-5xl lg:text-7xl xl:text-8xl xs:hidden">Developer</h1>
       <svg
-        className="absolute -bottom-1 xs:-bottom-[35%] left-[45%] -translate-x-1/2 object-contain w-[80%] h-[80%]"
+        className="absolute -bottom-[25%] xs:-bottom-[35%] left-[45%] -translate-x-1/2 object-contain w-[80%] h-[80%]"
         width="374"
         height="400"
         viewBox="0 0 374 400"
@@ -28,9 +28,9 @@ const Hero = () => {
       <img
         src="./images/arun_photo.png"
         alt="person_img"
-        className="object-contain w-[90%] h-[90%] absolute -bottom-8 xs:-bottom-38 left-1/2 -translate-x-1/2"
+        className="object-contain w-[90%] h-[90%] absolute -bottom-24 xs:-bottom-38 left-1/2 -translate-x-1/2"
       />
-      <div className="absolute bottom-20 bg-white rounded-full py-1 px-1 flex flex-row gap-4 items-center">
+      <div className="absolute bottom-5 bg-white rounded-full py-1 px-1 flex flex-row gap-4 items-center">
         <button className=" xs:text-3xl px-2 xs:px-3 xs:py-2 rounded-full font-equitan font-semibold cursor-pointer bg-primary text-white w-32 xs:w-52 h-12 xs:h-16 flex flex-row items-center justify-between">
            <p className="pl-2 xs:pl-4">Portfolio</p>
           <svg className="w-9 h-9 xs:w-12 xs:h-12" width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">

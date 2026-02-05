@@ -7,6 +7,7 @@ import { useGSAP } from '@gsap/react';
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from 'gsap';
+import About from './components/About';
 
 gsap.registerPlugin(useGSAP,ScrollTrigger, ScrollSmoother);
 
@@ -29,11 +30,11 @@ const App = () => {
     <>
     <Navbar/>
 
-    <div ref={wrapperRef} className='min-h-screen'>
+    <div ref={wrapperRef} className='h-[100dvh] sm:min-h-screen'>
       <div ref={contentRef}>
-        
         <Hero/>
         <Service/>
+        <About/>
       </div>
     </div>
     </>
