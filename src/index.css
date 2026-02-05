@@ -4,6 +4,7 @@
 @theme {
   --font-equitan: "EquitanSans", sans-serif;
   --font-radhiumz: "Radhiumz", sans-serif;
+  --font-NeuePlak: "NeuePlak", sans-serif;
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
   --color-background: var(--background);
@@ -52,4 +53,16 @@
   font-style: normal;
   font-weight: 300;
   src: url("./assets/fonts/NCS\ Radhiumz\ Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "NeuePlak";
+  font-style: normal;
+  font-weight: 600;
+  src: url("./assets/fonts/NeuePlak-WideSemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "NeuePlak";
+  font-style: normal;
+  font-weight:800;
+  src: url("./assets/fonts/NeuePlak-WideBold.ttf") format("truetype");
 }

@@ -3,15 +3,15 @@ import React from "react";
 const Hero = () => {
   return (
     <div id="home" className="w-full h-[88dvh] sm:h-[88vh] relative overflow-hidden flex flex-col gap-4 xs:gap-3 items-center pt-8 xs:pt-10 mt-20">
-      <div className="text-lg xs:text-xl lg:text-3xl mb-7 xs:mb-6 flex flex-row items-center gap-3">
+      <div className="text-lg xs:text-xl lg:text-3xl mb-7 xs:mb-6 flex flex-row items-center gap-3 select-none">
         <div className="w-6 h-1 bg-primary"></div> <p>Hello</p>
       </div>
-      <div className="font-radhiumz text-5xl xs:text-4xl sm:text-5xl lg:text-7xl xl:text-8xl flex flex-row gap-6 xs:gap-13">
+      <div className="font-radhiumz text-5xl xs:text-4xl sm:text-5xl lg:text-7xl xl:text-8xl flex flex-row gap-6 xs:gap-13 select-none">
         <p>I'm</p> <p className="text-primary underline">Arun,</p>
       </div>
-      <h1 className="font-radhiumz text-4xl xs:text-4xl sm:text-5xl lg:text-7xl xl:text-8xl hidden xs:block">Full-stack Developer</h1>
-      <h1 className="font-radhiumz text-5xl xs:text-4xl sm:text-5xl lg:text-7xl xl:text-8xl xs:hidden">Full-stack</h1>
-      <h1 className="font-radhiumz text-5xl xs:text-4xl sm:text-5xl lg:text-7xl xl:text-8xl xs:hidden">Developer</h1>
+      <h1 className="font-radhiumz select-none text-4xl xs:text-4xl sm:text-5xl lg:text-7xl xl:text-8xl hidden xs:block">Full-stack Developer</h1>
+      <h1 className="font-radhiumz select-none text-5xl xs:text-4xl sm:text-5xl lg:text-7xl xl:text-8xl xs:hidden">Full-stack</h1>
+      <h1 className="font-radhiumz select-none text-5xl xs:text-4xl sm:text-5xl lg:text-7xl xl:text-8xl xs:hidden">Developer</h1>
       <svg
         className="absolute -bottom-[25%] xs:-bottom-[35%] left-[45%] -translate-x-1/2 object-contain w-[80%] h-[80%]"
         width="374"
