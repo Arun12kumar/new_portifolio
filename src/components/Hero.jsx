@@ -35,7 +35,7 @@ const Hero = () => {
            <p className="pl-2 xs:pl-4">Portfolio</p>
           <svg className="w-9 h-9 xs:w-12 xs:h-12" width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="24.5" cy="24.5" r="24.5" fill="#9FD966" />
-            <g clip-path="url(#clip0_189_90)">
+            <g clipPath="url(#clip0_189_90)">
               <path
                 d="M27.75 16.25L25.9875 18.0125L31.7125 23.75H11.5V26.25H31.7125L25.975 31.9875L27.75 33.75L36.5 25L27.75 16.25Z"
                 fill="#323232"
