@@ -1,32 +1,31 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import React from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React, { useRef } from "react";
 
-// gsap.registerPlugin(useGSAP,ScrollTrigger);
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const Service = () => {
 
-  // useGSAP(()=>{
-  //   gsap.to('.cards',{
-  //   x:200,
-  //   scrollTrigger('.cards',{
-      
-  //   })
-      
-  //   })
-  // },[])
+  const containerRef = useRef(null);
+  const cardRef = useRef(null);
+
+  useGSAP(() => {
+    gsap.to(cardRef.current, {
+      x: -410,
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top 17%",
+        end: "bottom 90%",
+        scrub: 2,
+      },
+    });
+  }, []);
 
   return (
-    <div id="services" className="h-screen bg-primary py-18 px-24 flex flex-col justify-between">
-      <div className="w-full h-[20vh] relative z-20">
-        <div className="flex flex-row items-center gap-4">
-          <div className="w-6 h-1 bg-secondary"></div>
-          <h1 className="text-3xl">Services</h1>
-        </div>
-        <h1 className="text-5xl font-NeuePlak">My Services</h1>
-      </div>
+    <div id="services" ref={containerRef} className="h-[110vh] bg-primary px-24 py-24 flex flex-col relative overflow-hidden">
       <svg
-        className="w-[54%] h-[34%] absolute -left-[2%] top-[21%] opacity-20 z-10"
+        className="w-[54%] h-[34%] absolute -left-[2%] top-[8%] opacity-20 z-0"
         width="220"
         height="25"
         viewBox="0 0 220 25"
@@ -38,24 +37,33 @@ const Service = () => {
           fill="#B7ACDE"
         />
       </svg>
-      <div className="cards">
-        <div className="bg-white w-80 h-94 rounded-full flex items-center justify-center">
+
+      <div className="flex flex-row items-center gap-4 absolute z-10">
+        <div className="w-6 h-1 bg-secondary"></div>
+        <h1 className="text-3xl text-white">Services</h1>
+      </div>
+      <h1 className="text-5xl font-NeuePlak absolute z-10 top-[18%] flex flex-row gap-4">
+        <p className="text-white">My</p>
+        <p className="text-secondary">Services</p>
+      </h1>
+
+      <div ref={cardRef} className="flex flex-row gap-10 absolute top-[34%] left-[30%] ">
+        <div className="bg-white w-80 h-[62vh] rounded-full flex flex-col items-center justify-center px-4 gap-3">
+          <h1 className="text-4xl font-NeuePlak text-center text-textPrimary">React Developer</h1>
+          <h3 className="text-lg font-EquitanSans text-center leading-5 text-textSecondary px-5">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus 
+          </h3>
+        </div>
+        <div className="bg-white w-80 h-[62vh] rounded-full flex items-center justify-center">
           <h1 className="text-4xl font-NeuePlak text-center">React Developer</h1>
         </div>
-        <div className="bg-white w-80 h-94 rounded-full flex items-center justify-center">
+        <div className="bg-white w-80 h-[62vh] rounded-full flex items-center justify-center">
           <h1 className="text-4xl font-NeuePlak text-center">React Developer</h1>
         </div>
-        <div className="bg-white w-80 h-94 rounded-full flex items-center justify-center">
-          <h1 className="text-4xl font-NeuePlak text-center">React Developer</h1>
-        </div>
-        <div className="bg-white w-80 h-94 rounded-full flex items-center justify-center">
-          <h1 className="text-4xl font-NeuePlak text-center">React Developer</h1>
-        </div>
-        <div className="bg-white w-80 h-94 rounded-full flex items-center justify-center">
+        <div className="bg-white w-80 h-[62vh] rounded-full flex items-center justify-center">
           <h1 className="text-4xl font-NeuePlak text-center">React Developer</h1>
         </div>
       </div>
-
     </div>
   );
 };
