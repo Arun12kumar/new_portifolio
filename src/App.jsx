@@ -8,6 +8,7 @@ import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from 'gsap';
 import About from './components/About';
+import Footer from './components/Footer';
 
 gsap.registerPlugin(useGSAP,ScrollTrigger, ScrollSmoother);
 
@@ -30,11 +31,13 @@ const App = () => {
     <>
     <Navbar/>
 
-    <div ref={wrapperRef} className='h-[100dvh] sm:min-h-screen'>
-      <div ref={contentRef}>
+    <div ref={wrapperRef} className='overflow-hidden'>
+      <div ref={contentRef} className='min-h-screen'>
         <Hero/>
         <Service/>
         <About/>
+        <Footer/>
+        <div className='h-25'></div>
       </div>
     </div>
     </>

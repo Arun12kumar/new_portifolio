@@ -6,12 +6,12 @@ import gsap from "gsap";
 import { Link } from "react-scroll";
 import { useMediaQuery } from 'react-responsive'
 
-const menuLinks = [
+export const menuLinks = [
   { id: 1, title: "Home", path: "#home" },
   { id: 2, title: "Services", path: "#services" },
   { id: 3, title: "About", path: "#about" },
   { id: 4, title: "Projects", path: "#projects" },
-  { id: 5, title: "Testimonials", path: "#testimonials" },
+
 ];
 
 const Navbar = () => {
@@ -93,7 +93,7 @@ const Navbar = () => {
                 spy={true}
                 smooth={true}
                 duration={500}
-                offset={-80}
+                       
                 key={index}
                 to={items.path.replace("#", "")}
                 onClick={() => handleActive(items.path.replace("#", ""))}
