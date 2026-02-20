@@ -37,7 +37,7 @@ const App = () => {
         <Service/>
         <About/>
         <Footer/>
-        <div className='h-25'></div>
+        <div className='h-15'></div>
       </div>
     </div>
     </>

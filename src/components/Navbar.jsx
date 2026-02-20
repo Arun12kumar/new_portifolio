@@ -105,7 +105,7 @@ const Navbar = () => {
           })}
         </ul>
 
-        <ButtonV1 title="Contact me" bgcolor="bg-primary" textColour="text-white" />
+        <ButtonV1 title="Contact me" bgcolor="bg-primary" textColour="text-white"/>
       </div>
 
       <div className="flex flex-row items-center justify-between px-5 sm:hidden w-full fixed top-0 bg-white z-50">
