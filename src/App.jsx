@@ -8,6 +8,8 @@ import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import About from "./components/About";
+import Experience from "./components/Experience";
+import Projects from "./components/Projects";
 import Footer from "./components/Footer";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger, ScrollSmoother);
@@ -58,6 +60,8 @@ const App = () => {
           </div>
           <Service />
           <About />
+          <Experience />
+          <Projects />
           <div className="h-14 bg-secondary overflow-hidden flex items-center">
             <div className="flex flex-row gap-5 animate-marquee whitespace-nowrap">
               {[...labels, ...labels].map((item, index) => (
